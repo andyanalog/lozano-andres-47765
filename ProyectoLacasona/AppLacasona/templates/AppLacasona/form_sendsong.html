@@ -1,0 +1,19 @@
+{% extends "AppLacasona/padre.html" %}
+
+{% block titulo %}
+    Envianos tu canción
+{% endblock %}
+
+{% block titulotexto %}
+<h2 style="color: aliceblue;">Si queres mezclar o masterizar tu canción, tan solo adjuntanos el nombre de la canción con un link de WeTransfer y tu mail para enviarte los resultados.</h2>
+<br>
+<form action="/AppLacasona/form_sendsong/" method="POST">{% csrf_token %}
+    
+    <p style="color: aliceblue;"> Nombre de la canción: <input type="text" name="songname"> </p>
+    <p style="color: aliceblue;"> Email: <input type="text" name="email"> </p>
+    <p style="color: aliceblue;"> Link de descarga: <input type="text" name="url"> </p>
+    
+    <input type="submit" value="Enviar">
+    
+    </form>
+{% endblock %}

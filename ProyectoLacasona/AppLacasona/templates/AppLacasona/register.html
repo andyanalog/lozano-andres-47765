@@ -1,0 +1,14 @@
+{% extends "AppLacasona/padre.html" %}
+
+{% block titulo %}
+    Registrate
+{% endblock %}
+
+{% block titulotexto %}
+<form action="/AppLacasona/register/" method="POST">{% csrf_token %}
+    
+    {{formulario.as_p}}
+    <button type="submit">Registrate</button>
+
+    </form>
+{% endblock %}

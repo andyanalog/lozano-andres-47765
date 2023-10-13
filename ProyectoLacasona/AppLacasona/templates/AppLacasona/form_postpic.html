@@ -1,0 +1,20 @@
+{% extends "AppLacasona/padre.html" %}
+
+{% block titulo %}
+    Publica tu Foto
+    {{mensaje}}
+{% endblock %}
+
+{% block titulotexto %}
+Compartinos tu experiencia en La Casona con una foto!
+{% endblock %}
+
+{% block cuerpotexto %}
+
+<form method="post" enctype="multipart/form-data" action="/AppLacasona/templates/AppLacasona/form_postpic.html">
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <button type="submit">Publicar</button>
+</form>
+
+{% endblock %}

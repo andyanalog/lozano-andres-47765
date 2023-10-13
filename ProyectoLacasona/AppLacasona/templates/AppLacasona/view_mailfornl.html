@@ -1,0 +1,40 @@
+
+{% extends "AppLacasona/padre.html" %}
+
+{% block titulo %}
+    Estamos buscando el mail: {{email}}
+{% endblock %}
+
+{% block titulotexto %}
+    
+{% if all_emails %}
+
+<ul>
+
+{% for email in all_emails %}
+    <h3>El apellido es:
+        <li>{{email.apellido}}</li>
+    </h3>
+{% endfor %}
+
+</ul>
+
+
+{% endif %}
+
+
+{% endblock %}
+
+{% if all_emails %}
+
+<ul>
+
+{% for email in all_emails %}
+    <li>{{email}}</li>
+    <li>{{email.apellido}}</li>
+{% endfor %}
+
+</ul>
+
+
+{% endif %}
