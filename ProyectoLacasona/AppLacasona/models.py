@@ -24,4 +24,5 @@ class Avatar(models.Model):
 
 class PublicacionDeImagen(models.Model):
     imagen = models.ImageField(upload_to='imagenes/')
-    mensaje = models.TextField()
+    descripcion = models.TextField()
+

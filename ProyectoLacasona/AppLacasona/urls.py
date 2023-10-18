@@ -17,7 +17,9 @@ urlpatterns = [
     path("login/", login, name="Login"),
     path("register/", register, name="Register"),
     path("logut/", LogoutView.as_view(template_name="AppLacasona/logout.html"), name="Logout"),
-    path("view_postpic/", form_postpic, name="ViewPostpic"),
+    path('view_postpic/', views.view_postpic, name='view_postpic'),
+    path('imagen/<int:imagen_id>/', views.pagina_de_imagen, name='pagina_de_imagen'),
+
 
     #urls de formularios
     path("form_newsletter/", form_mailfornl, name="FormNewsletter"),
@@ -28,6 +30,6 @@ urlpatterns = [
 
     #urls de búsqueda
     path("search_mailfornl/", search_mailfornl, name="SearchMailfornl"),
-#    path("view_mailfornl/", view_mailfornl, name="ViewMailfornl"),
+    path("view_mailfornl/", view_mailfornl, name="ViewMailfornl"),
     path("agregarimg/", views.agregarImagen, name="Subir Avatar"),
 ]

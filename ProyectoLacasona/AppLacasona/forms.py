@@ -24,4 +24,4 @@ class AvatarFormulario(forms.ModelForm):
 class FormularioDePublicacion(forms.ModelForm):
     class Meta:
         model = PublicacionDeImagen
-        fields = ['imagen', 'mensaje']
+        fields = ['imagen', 'descripcion']

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import *
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -115,12 +115,23 @@ def form_askanything(request):
     
     return render(request, "AppLacasona/form_askanything.html", {'usuario_autenticado': True})
 
+@login_required
+def form_postpic(request):
+    if request.method == 'POST':
+        formulario = FormularioDePublicacion(request.POST, request.FILES)
+        if formulario.is_valid():
+            imagen = formulario.save()  
+            return redirect('pagina_de_imagen', imagen_id=imagen.id)  # redirige a la página de imagen
+    else:
+        formulario = FormularioDePublicacion()
+
+    return render(request, 'AppLacasona/form_postpic.html', {'formulario': formulario})
 
 def search_mailfornl(request):
     return render(request, "AppLacasona/search_mailfornl.html")
 
 
-#def view_mailfornl(request):
+def view_mailfornl(request):
 
     if request.GET["email"]:
 
@@ -133,23 +144,15 @@ def search_mailfornl(request):
 
         respuesta = "No estas suscrito al Newsletter."
 
-    return HttpResponse(respuesta, nombreUsuario)
+    return HttpResponse(respuesta)
 
+def pagina_de_imagen(request, imagen_id):
+    imagen = get_object_or_404(PublicacionDeImagen, id=imagen_id)
+    return render(request, 'AppLacasona/pagina_de_imagen.html', {'imagen': imagen})
 
-
-def form_postpic(request):
-    if request.method == 'POST':
-        formulario = FormularioDePublicacion(request.POST, request.FILES)
-        if formulario.is_valid():
-            formulario.save()
-            return redirect('AppLacasona/inicio.html')  # Redirige a una página de éxito
-    else:
-        formulario = FormularioDePublicacion()
-
-    return render(request, 'AppLacasona/form_postpic.html', {'formulario': formulario})
-
-
-
+def view_postpic(request):
+    imagenes = PublicacionDeImagen.objects.all()
+    return render(request, 'AppLacasona/view_postpic.html', {'imagenes': imagenes})
 
 
 

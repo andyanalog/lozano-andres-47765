@@ -95,6 +95,17 @@
   }
 }
 
+.imagen-publicada {
+  max-width: 100%; 
+  height: auto; 
+}
+.descripcion-imagen {
+  font-size: 16px; 
+  line-height: 1.4; 
+  color: #ffffff; 
+ 
+}
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
