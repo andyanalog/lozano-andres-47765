@@ -1,0 +1,21 @@
+{% extends "AppLacasona/padre.html" %}
+
+{% block titulo %}
+Gracias por elegirnos!
+{% endblock %}
+
+{% block titulotexto %}
+Ustedes
+{% endblock %}
+
+{% block cuerpotexto %}
+
+<div class="imagenes-container">
+    {% for imagen in imagenes %}
+        <div class="imagen-item">
+            <img src="{{ imagen.imagen.url }}" alt="Imagen publicada" class="imagen-publicada">
+            <p class="descripcion-imagen">{{ imagen.descripcion }}</p>
+        </div>
+</div>
+    {% endfor %}
+{% endblock %}

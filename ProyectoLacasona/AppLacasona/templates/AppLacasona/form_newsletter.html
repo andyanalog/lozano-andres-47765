@@ -1,0 +1,32 @@
+
+{% extends "AppLacasona/padre.html" %}
+
+{% block titulo %}
+    Newsletter
+{% endblock %}
+
+{% block titulotexto %}
+<h2 style="color: aliceblue;">Inscribite a nuestro Newsletter para enterarte las ultimas noticas de nuestro estudio.</h2>
+<br>
+<form action="/AppLacasona/form_newsletter/" method="POST">{% csrf_token %}
+    
+    <p style="color: aliceblue;"> Nombre: <input type="text" name="nombre"> </p>
+    <p style="color: aliceblue;"> Apellido: <input type="text" name="apellido"> </p>
+    <p style="color: aliceblue;"> Email: <input type="text" name="email"> </p>
+    
+    <input type="submit" value="Enviar">
+    
+    </form>
+{% endblock %}
+
+<!---
+<form action="/AppLacasona/form_newsletter/" method="POST">{% csrf_token %}
+    
+<p> Nombre: <input type="text" name="nombre"> </p>
+<p> Apellido: <input type="text" name="apellido"> </p>
+<p> Email: <input type="text" name="email"> </p>
+
+<input type="submit" value="Enviar">
+
+</form>
+

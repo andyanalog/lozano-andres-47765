@@ -1,0 +1,19 @@
+
+{% extends "AppLacasona/padre.html" %}
+
+{% block titulo %}
+    Hablá con nosotros
+{% endblock %}
+
+{% block titulotexto %}
+<h2 style="color: aliceblue;">Si tenés alguna consulta en particular, no dudes en enviarnos un mensaje.</h2>
+<br>
+<form action="/AppLacasona/form_askanything/" method="POST">{% csrf_token %}
+    
+    <p style="color: aliceblue;"> Mensaje: <input type="text" name="message"> </p>
+    <p style="color: aliceblue;"> Email: <input type="text" name="email"> </p>
+    
+    <input type="submit" value="Enviar">
+    
+    </form>
+{% endblock %}
